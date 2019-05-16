@@ -99,7 +99,7 @@ map.on('load', function() {
         if (lot) {  // if there's a lot under the mouse, do stuff
           map.getCanvas().style.cursor = 'pointer';  // make the cursor a pointer
 
-          // use jquery to display the address and land use description to the sidebar
+          // use jquery to display information in the side bar
 
           var ghg_value = numeral(lot.properties['Total_GHG']).format('0,0');
           var pop_value = numeral(lot.properties['Population']).format('0,0');
@@ -130,61 +130,6 @@ map.on('load', function() {
           });
         }
       })
-
-      $('.overview').on('click', function() {
-        map.setLayoutProperty('s-energy-fill', 'visibility', 'none')
-        map.setLayoutProperty('total-ghg-fill', 'visibility', 'visible')
-        map.setLayoutProperty('trans-fill', 'visibility', 'none')
-        map.setLayoutProperty('waste-fill', 'visibility', 'none')
-        map.setLayoutProperty('industry-fill', 'visibility', 'none')
-        map.setLayoutProperty('ag-fill', 'visibility', 'none')
-      })
-
-      $('.s-energy').on('click', function() {
-        map.setLayoutProperty('s-energy-fill', 'visibility', 'visible')
-        map.setLayoutProperty('total-ghg-fill', 'visibility', 'none')
-        map.setLayoutProperty('trans-fill', 'visibility', 'none')
-        map.setLayoutProperty('waste-fill', 'visibility', 'none')
-        map.setLayoutProperty('industry-fill', 'visibility', 'none')
-        map.setLayoutProperty('ag-fill', 'visibility', 'none')
-      })
-
-      $('.trans').on('click', function() {
-        map.setLayoutProperty('s-energy-fill', 'visibility', 'none')
-        map.setLayoutProperty('total-ghg-fill', 'visibility', 'none')
-        map.setLayoutProperty('trans-fill', 'visibility', 'visible')
-        map.setLayoutProperty('waste-fill', 'visibility', 'none')
-        map.setLayoutProperty('industry-fill', 'visibility', 'none')
-        map.setLayoutProperty('ag-fill', 'visibility', 'none')
-      })
-
-      $('.waste').on('click', function() {
-        map.setLayoutProperty('s-energy-fill', 'visibility', 'none')
-        map.setLayoutProperty('total-ghg-fill', 'visibility', 'none')
-        map.setLayoutProperty('trans-fill', 'visibility', 'none')
-        map.setLayoutProperty('waste-fill', 'visibility', 'visible')
-        map.setLayoutProperty('industry-fill', 'visibility', 'none')
-        map.setLayoutProperty('ag-fill', 'visibility', 'none')
-      })
-
-      $('.industry').on('click', function() {
-        map.setLayoutProperty('s-energy-fill', 'visibility', 'none')
-        map.setLayoutProperty('total-ghg-fill', 'visibility', 'none')
-        map.setLayoutProperty('trans-fill', 'visibility', 'none')
-        map.setLayoutProperty('waste-fill', 'visibility', 'none')
-        map.setLayoutProperty('industry-fill', 'visibility', 'visible')
-        map.setLayoutProperty('ag-fill', 'visibility', 'none')
-      })
-
-      $('.ag').on('click', function() {
-        map.setLayoutProperty('s-energy-fill', 'visibility', 'none')
-        map.setLayoutProperty('total-ghg-fill', 'visibility', 'none')
-        map.setLayoutProperty('trans-fill', 'visibility', 'none')
-        map.setLayoutProperty('waste-fill', 'visibility', 'none')
-        map.setLayoutProperty('industry-fill', 'visibility', 'none')
-        map.setLayoutProperty('ag-fill', 'visibility', 'visible')
-      })
-
     });
 
 

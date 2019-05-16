@@ -53,7 +53,7 @@ div.button: hover {
   background: #888;
 }
 
-a {
+a .enter{
   color: black;
   font-size: 25px;
 }
