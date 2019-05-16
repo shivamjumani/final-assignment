@@ -17,6 +17,7 @@ map.on('load', function() {
 
     $.getJSON('data/ghg-data.geojson', function(data) {
 
+      //adding the geojson file as the source
       map.addSource('ghg-data', {
           'type': 'geojson',
           'data': data,
@@ -27,130 +28,27 @@ map.on('load', function() {
         type: 'fill',
         source: 'ghg-data',
         paint: {
-          'fill-opacity': 0.7,
+          'fill-opacity': 0.8,
           'fill-color': [
               'interpolate',
               ['linear'],
               ['get', 'Total_GHG'],
-              0, '#f1eef6',
-              5000000, '#bdc9e1',
-              10000000, '#74a9cf',
-              25000000, '#2b8cbe',
-              39065890, '#2b8cbe'
+              0, '#737373',
+              // 0 is for the unincorporated areas
+              1, '#f7fcf5',
+              250000, '#e5f5e0',
+              500000, '#c7e9c0',
+              1000000, '#a1d99b',
+              2500000, '#74c476',
+              5000000, '#41ab5d',
+              7000000, '#238b45',
+              9000000, '#006d2c',
+              11000000, '#00441b'
           ],
         },
-      });
-      // adding all other Sector layers
-      map.addLayer({
-        id: 's-energy-fill',
-        type: 'fill',
-        source: 'ghg-data',
-        paint: {
-          'fill-opacity': 0.7,
-          'fill-color': [
-              'interpolate',
-              ['linear'],
-              ['get', 'Stationary Energy'],
-              0, '#f1eef6',
-              5000000, '#bdc9e1',
-              10000000, '#74a9cf',
-              25000000, '#2b8cbe',
-              39065890, '#2b8cbe'
-          ],
-        },
-        'layout': {
-          'visibility': 'none'
-        }
       });
 
-      map.addLayer({
-        id: 'trans-fill',
-        type: 'fill',
-        source: 'ghg-data',
-        paint: {
-          'fill-opacity': 0.7,
-          'fill-color': [
-              'interpolate',
-              ['linear'],
-              ['get', 'Transportation'],
-              0, '#f1eef6',
-              5000000, '#bdc9e1',
-              10000000, '#74a9cf',
-              25000000, '#2b8cbe',
-              39065890, '#2b8cbe'
-          ],
-        },
-        'layout': {
-          'visibility': 'none'
-        }
-      });
-
-      map.addLayer({
-        id: 'waste-fill',
-        type: 'fill',
-        source: 'ghg-data',
-        paint: {
-          'fill-opacity': 0.7,
-          'fill-color': [
-              'interpolate',
-              ['linear'],
-              ['get', 'Waste'],
-              0, '#f1eef6',
-              5000000, '#bdc9e1',
-              10000000, '#74a9cf',
-              25000000, '#2b8cbe',
-              39065890, '#2b8cbe'
-          ],
-        },
-        'layout': {
-          'visibility': 'none'
-        }
-      });
-
-      map.addLayer({
-        id: 'industry-fill',
-        type: 'fill',
-        source: 'ghg-data',
-        paint: {
-          'fill-opacity': 0.7,
-          'fill-color': [
-              'interpolate',
-              ['linear'],
-              ['get', 'Industrial Processes and Product Use'],
-              0, '#f1eef6',
-              5000000, '#bdc9e1',
-              10000000, '#74a9cf',
-              25000000, '#2b8cbe',
-              39065890, '#2b8cbe'
-          ],
-        },
-        'layout': {
-          'visibility': 'none'
-        }
-      });
-
-      map.addLayer({
-        id: 'ag-fill',
-        type: 'fill',
-        source: 'ghg-data',
-        paint: {
-          'fill-opacity': 0.7,
-          'fill-color': [
-              'interpolate',
-              ['linear'],
-              ['get', 'Agriculture, Forestry and Other Land Use'],
-              0, '#f1eef6',
-              5000000, '#bdc9e1',
-              10000000, '#74a9cf',
-              25000000, '#2b8cbe',
-              39065890, '#2b8cbe'
-          ],
-        },
-        'layout': {
-          'visibility': 'none'
-        }
-      });
-
+      // creating a line boundary for each city
       map.addLayer({
         id: 'city-boundary',
         type: 'line',
@@ -185,6 +83,9 @@ map.on('load', function() {
         }
       });
 
+      // setting the water layer on the mapbox gl map to a specific color
+      map.setPaintProperty('water', 'fill-color', '#a4bee8')
+
       // when the mouse moves, do stuff!
       map.on('mousemove', function (e) {
         // query for the features under the mouse, but only in the lots layer
@@ -209,13 +110,13 @@ map.on('load', function() {
           var ag_value = numeral(lot.properties['Agriculture, Forestry and Other Land Use']).format('0,0');
 
           $('#line1').text("City: " + lot.properties.city_name);
-          $('#line2').text("Total GHG " + ghg_value);
+          $('#line2').text("Total GHG " + ghg_value + " MtCO2e");
           $('#line3').text("Population " + pop_value);
-          $('#line4').text("Stationary Energy " + se_value);
-          $('#line5').text("Transportation " + trans_value);
-          $('#line6').text("Waste " + was_value);
-          $('#line7').text("Industrial Processes and Product Use " + ind_value);
-          $('#line8').text("Agriculture, Forestry and Other Land Use " + ag_value);
+          $('#line4').text("Stationary Energy " + se_value + " MtCO2e");
+          $('#line5').text("Transportation " + trans_value + " MtCO2e");
+          $('#line6').text("Waste " + was_value + " MtCO2e");
+          $('#line7').text("Industrial Processes and Product Use " + ind_value + " MtCO2e");
+          $('#line8').text("Agriculture, Forestry and Other Land Use " + ag_value + " MtCO2e");
 
           // set this lot's polygon feature as the data for the highlight source
           map.getSource('highlight-feature').setData(lot.geometry);

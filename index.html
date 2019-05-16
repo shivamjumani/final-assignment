@@ -1,95 +1,42 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
 
-<head>
+<html lang="en">
+  <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>LA Website Final Layout</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.css' rel='stylesheet' />
-</head>
 
-<body>
-    <div style="background-color: #93e691;height: 590;padding: 10px;">
-        <div class="container">
-            <div class="row" style="height: 50px;">
-                <div class="col-md-7 col-lg-12 col-xl-12 offset-xl-0 d-lg-flex align-items-lg-center"><img style="width: auto;height: 35px;margin: 10px;" src="assets/img/logo_ourcounty.svg" width="60px" height="auto">
-                    <h4 class="d-lg-flex align-items-lg-center" style="margin: 10px;margin-bottom: 1px;margin-top: 1px;width: 600px;">LA County's GHG emissions dashboard</h4>
-                </div>
-            </div>
-            <!-- <div class="row" style="height: 35px;">
-                <div class="col-md-7 col-lg-12 col-xl-12 offset-xl-0 d-lg-flex align-items-lg-center" style="padding-left: 0px;height: 35px;">
-                    <nav class="navbar navbar-light navbar-expand-md d-xl-flex align-items-xl-center" style="padding-top: 0;padding-bottom: 0;padding-right: 8px;padding-left: 0;background-color: rgba(116,200,102,0);">
-                        <div class="container-fluid"><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-                            <div class="collapse navbar-collapse" id="navcol-1">
-                                <ul class="nav navbar-nav">
-                                    <li class="nav-item overview" role="presentation"><a class="nav-link active" href="#" style="padding-top: 2px;padding-bottom: 2px;">Overview</a></li>
-                                    <li class="nav-item dropdown show"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="true" href="#" style="padding-top: 2px;padding-bottom: 2px;">Sector&nbsp;</a>
-                                        <div class="dropdown-menu text-truncate" role="menu" style="width: 270px;">
-                                          <a class="dropdown-item s-energy" role="presentation" href="#" style="font-size: 12px;">Stationary Energy</a>
-                                          <a class="dropdown-item trans" role="presentation" href="#" style="font-size: 12px;">Transportation</a>
-                                          <a class="dropdown-item waste" role="presentation" href="#" style="font-size: 12px;">Waste</a>
-                                          <a class="dropdown-item industry" role="presentation" href="#" style="font-size: 12px;">Industrial Processes &amp; Product Use</a>
-                                          <a class="dropdown-item ag" role="presentation" href="#" style="font-size: 12px;">Agriculture, Forestry and Other Land Use</a>
-                                        </div>
-                                    </li>
-                                    <!-- <li class="nav-item dropdown show"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="true" href="#" style="padding-top: 2px;padding-bottom: 2px;">Scope&nbsp;</a>
-                                        <div class="dropdown-menu show" role="menu" style="width: 160px;"><a class="dropdown-item" role="presentation" href="#" style="font-size: 12px;">Scope 1</a><a class="dropdown-item" role="presentation" href="#" style="font-size: 12px;">Scope 2</a><a class="dropdown-item" role="presentation"
-                                                href="#" style="font-size: 12px;">Scope 3</a></div>
-                                    </li> -->
-                                    <!-- <li class="nav-item" role="presentation">
-                                      <a class="nav-link" href="#" style="padding-top: 2px;padding-bottom: 2px;">About</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </nav>
-                </div>
-            </div> -->
-        </div>
-    </div>
-    <div class="float-none">
-        <div class="container box">
-            <div class="row">
-                <div class="col-md-6 col-xl-5" style="padding-right: 0px;padding-left: 0px;max-height: 700px;height: 680px;padding-top: 10px;">
-                    <div id="chart-1-title" style="height: 30px;margin: 10px;padding: 10px;margin-top: 0px;">
-                      <h3 class="chart-title">Highest GHG emitting cities</h3>
-                    </div>
-                    <div id="chart-1" style="height: 320px;margin: 10px; margin-top:0px;">
-                      <!-- <h4>Highest GHG emitting cities</h4> -->
-                      <img class="chart" src="assets/chart1.png" alt="">
-                    </div>
-                    <div class="interactive-box" style="height: 240px;margin: 10px;line-height:2;">
-                      <span class="labels-title" id="line1">Move the mouse over a city for more details</span><br/>
-                      <span class="labels"></span><span class="labels" id="line2"></span><br/>
-                      <span class="labels"></span><span class="labels" id="line3"></span><br/>
-                      <span class="labels-title">Emissions breakdown</span><span class="labels"></span><br/>
-                      <span class="labels"></span><span class="labels" id="line4"></span><br/>
-                      <span class="labels"></span><span class="labels" id="line5"></span><br/>
-                      <span class="labels"></span><span class="labels" id="line6"></span><br/>
-                      <span class="labels"></span><span class="labels" id="line7"></span><br/>
-                      <span class="labels"></span><span class="labels" id="line8"></span><br/>
-                    </div>
-                </div>
-                <div class="col">
-                    <div id='map' style="height: 100%;margin: 0px;margin-top: 0px;margin-bottom: 0px;">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
+    <title>LA County GHG Emissions</title>
+    <meta name="description" content="The HTML5 Herald">
+    <meta name="author" content="SitePoint">
+
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/styles-home.css?v=1.0">
+  </head>
+
+  <body>
+        <!-- Giving an intro to the dashboard -->
+        <div class="intro-box">
+          <h2>Los Angeles County's Greenhouse gas emmissions dashboard</h2>
+          <p>Los Angeles County is drafting a plan, <a href="https://ourcountyla.org/">Out County</a> which will present
+             a comprehensive pathway to sustainability, addressing a wide range of subjects including
+             climate change, water, energy, resource management, land use, transportation, open space,
+             biodiversity, public health, economy and workforce development, housing, resilience, and
+             governance. Countywide goals and strategies will be informed by data as well as stakeholder
+             and community engagement. </p>
+          <p>To supplement this effort, I have created a dashboard that allows the public
+          to look at the greenhouse gas (GHG) emissions of all the 88 cities in LA County, broken
+          down by source (Stationary Energy (energy produced on site), Transportation, Waste,
+          Industrial Processes and Agriculture). Hover over the city to get these details.
+          </p>
+          <div class="button">
+          <a href="dashboard.html">Enter</a>
+          </div>
+
+
+      </div>
     <script
     src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
-    <script src="assets/js/scripts.js"></script>
-</body>
 
+  </body>
 </html>

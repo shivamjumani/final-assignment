@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>LA County GHG Emissions</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.css' rel='stylesheet' />
+</head>
+
+<body>
+  </div>
+  <!-- adding the header of the page -->
+    <div style="background-color: #93e691;height: 590;padding: 10px;">
+        <div class="container">
+            <div class="row" style="height: 50px;">
+                <div class="col-md-7 col-lg-12 col-xl-12 offset-xl-0 d-lg-flex align-items-lg-center"><img style="width: auto;height: 35px;margin: 10px;" src="assets/img/logo_ourcounty.svg" width="60px" height="auto">
+                    <h4 class="d-lg-flex align-items-lg-center" style="margin: 10px;margin-bottom: 1px;margin-top: 1px;width: 600px;">LA County's GHG emissions dashboard</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="float-none">
+        <div class="container box">
+            <div class="row">
+                <div class="col-md-6 col-xl-5" style="padding-right: 0px;padding-left: 0px;max-height: 680px;height: 630px;padding-top: 10px;">
+                    <div id="chart-1-title" style="height: 30px;margin: 10px;padding: 10px;margin-top: 0px;">
+                      <h3 class="chart-title">Highest GHG emitting cities</h3>
+                    </div>
+                    <div id="chart-1" style="height: 320px;margin: 10px; margin-top:0px;">
+                      <!-- adding the graph -->
+                      <img class="chart" src="assets/chart1.png" alt="">
+                    </div>
+                    <!-- box for more information on each city -->
+                    <div class="interactive-box" style="height: 240px;margin: 10px;line-height:2; background-color:#d9d9d9">
+                      <span class="labels-title" id="line1">Move the mouse over a city for more details</span><br/>
+                      <span class="labels"></span><span class="labels" id="line2"></span><br/>
+                      <span class="labels"></span><span class="labels" id="line3"></span><br/>
+                      <span class="labels-title">Emissions breakdown</span><span class="labels"></span><br/>
+                      <span class="labels"></span><span class="labels" id="line4"></span><br/>
+                      <span class="labels"></span><span class="labels" id="line5"></span><br/>
+                      <span class="labels"></span><span class="labels" id="line6"></span><br/>
+                      <span class="labels"></span><span class="labels" id="line7"></span><br/>
+                      <span class="labels"></span><span class="labels" id="line8"></span><br/>
+                    </div>
+                </div>
+                <div class="col">
+                    <div id='map' style="height: 100%;margin: 0px;margin-top: 0px;margin-bottom: 0px;">
+                      <div id='legend' class='legend'>
+                        <!-- legend -->
+                        <h2>GHG emissions (MtCO2e)</h2>
+                          <div><span style='background-color: #00441b'></span>11,000,000</div>
+                          <div><span style='background-color: #006d2c'></span>9,000,000</div>
+                          <div><span style='background-color: #238b45'></span>7,000,000</div>
+                          <div><span style='background-color: #41ab5d'></span>5,000,000</div>
+                          <div><span style='background-color: #74c476'></span>2,500,000</div>
+                          <div><span style='background-color: #a1d99b'></span>1,000,000</div>
+                          <div><span style='background-color: #c7e9c0'></span>500,000</div>
+                          <div><span style='background-color: #e5f5e0'></span>250,000</div>
+                          <div><span style='background-color: #f7fcf5'></span>0</div>
+                          <div><span style='background-color: #969696'></span>Unincorporated</div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
+</body>
+
+</html>
