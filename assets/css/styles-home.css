@@ -6,7 +6,7 @@ html, body {
 }
 
 body {
-  background-image: url("/assets/img/background_image.jpeg");
+  background-image: url("background_image.jpeg");
   background-color: white;
   background-repeat: no-repeat;
   background-size: 100% 100%;
